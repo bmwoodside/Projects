@@ -2,3 +2,8 @@
 #loginButton, #registerButton {
 	margin-top: 8px;
 }
+
+.headerRow {
+	display: flex;
+	justify-content: space-between;
+}

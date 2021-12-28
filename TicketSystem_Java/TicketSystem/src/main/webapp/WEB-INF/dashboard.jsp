@@ -25,9 +25,14 @@
 <body>
     <div class="bodyContainer"> <!-- Beginning of Container -->
     
-    <h1>Welcome, <c:out value="${userName }">Placeholder</c:out>!!!</h1>
+    <div class="headerRow">
+    	<h1>Welcome, <c:out value="${userName }">Placeholder</c:out>!!!</h1>
+    	<a class="btn btn-info" href="/logout" role="button" id="logoutBtn">Logout</a>
+    </div>
     
     <p>Here's some stuff for you!</p>
+    
+    <a class="btn btn-warning" href="/createTicket" role="button" id="newTicketBtn">+ New Ticket</a>
     
     <table class="table">
     	<thead>
@@ -39,12 +44,12 @@
     		</tr>
     	</thead>
     	<tbody>
-    		<c:forEach var="issue" items="${allIssues }">
+    		<c:forEach var="issue" items="${allTickets }">
     			<tr>
     				<td><c:out value="${issue.id }">#test</c:out></td>
-    				<td><c:out value="${issue.title }">Placeholder</c:out></td>
+    				<td><a href="/tickets/${issue.id }"><c:out value="${issue.title }">Placeholder</c:out></a></td>
     				<td><c:out value="${issue.priority }">Placeholder</c:out></td>
-    				<td>Button1(edit) | Button2(delete)</td>
+    				<td>Button1(edit) | <a class="btn btn-danger" href="/deleteConfirmation/${issue.id}/confirmed" role="button">Delete</a></td>
     			</tr>
     		</c:forEach>
     	</tbody>
